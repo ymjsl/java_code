@@ -1,111 +1,153 @@
+import java.util.Random;
 import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
  * Description:
  * User: admin
- * Date: 2023-11-17
- * Time: 17:40
+ * Date: 2023-11-19
+ * Time: 18:53
  */
+//无符号右移 >>> 补零
+// if（语句），不能是一个符号
+//良好的编程习惯
+//1.注释
+//2.命名规则的遵守
+//可读性高，性能好
+//不能做switch 参数的数据类型
+//long float double boolean
+//while(布尔表达式）
+//continue 直接进行下一次循环
+//当你输入的数据 有很多不同类型时，优先处理字符串的输入
+//    ctrl+d 结束循环
+// 生成随机数
 public class Test {
     public static void main(String[] args) {
-        Scanner scanner=new Scanner(System.in);
-        int num= scanner.nextInt();
-        for ( int year = 1000; year <=num; year++) {
-            if(year%100!=0){
-                if(year%4==0){
-                    System.out.println(year+" is leapYear");
-                }
+        //猜数字
+        Random random = new Random();
+        int n = random.nextInt(101);
+        Scanner scanner = new Scanner(System.in);
+        while(scanner.hasNextInt()){
+            int num = scanner.nextInt();
+            if(num>n){
+                System.out.println("猜大了");
             }
-            else if(year%400==0){
-                System.out.println(year+" is leapYear");
+            else if(num<n){
+                System.out.println("猜小了");
+            }
+            else{
+                System.out.println("猜对了");
+                break;
             }
         }
+
     }
     public static void main11(String[] args) {
-        //工具
-        Scanner scanner = new Scanner(System.in);
-                                      //键盘
-        int a=scanner.nextInt();
+        Random random = new Random();
+        //int n = random.nextInt(100)+1;//[1,101)
+        int n = random.nextInt(50)+50;//[50,100)
+        System.out.println(n);
     }
     public static void main10(String[] args) {
-        int a=10;
-        if(a%2==0){
-            System.out.println("偶数");
-        }
-        else{
-            System.out.println("奇数");
+        Scanner scan = new Scanner(System.in);
+        while(scan.hasNextLine()){
+            System.out.println("输入你的姓名: ");
+            String name = scan.nextLine();
+            System.out.println("姓名: "+name);
         }
     }
     public static void main9(String[] args) {
-        /*System.out.println("1");
-        System.out.println("2");
-        System.out.println("3");
-        System.out.println("4");*/
-        for (int i = 0; i < 4; i++) {
-            System.out.println(i+1);
+        Scanner scan = new Scanner(System.in);
+        while(scan.hasNextInt()){
+            System.out.println("输入你的年龄: ");
+            int age = scan.nextInt();
+            System.out.println("年龄: "+age);
         }
     }
-    //if(布尔表达式){
-
-    //}
     public static void main8(String[] args) {
-        int a=10;
-        int b=20;
-        //a>b?a:b; errnoeous 不是语句
-        int c=a+((b-a)>>1);
-        System.out.println(c);
+        Scanner scan = new Scanner(System.in);
+        System.out.println("输入你的姓名: ");
+        String name = scan.nextLine();
+        System.out.println("输入你的年龄: ");
+        int age = scan.nextInt();
+        System.out.println("输入你的工资: ");
+        float money = scan.nextFloat();
+        System.out.println("姓名: "+name);
+        System.out.println("年龄: "+age);
+        System.out.println("工资: "+money);
+        scan.close();
     }
     public static void main7(String[] args) {
-        //System.out.println(10>20&10/0==0);//errnoeous
-        //System.out.println(10<20|10/0==0);//errnoeous
-        System.out.println(10<20|10>0);
-        System.out.println(-1>>1);//-1 //右移补1
-        System.out.println(-1>>>1);//无符号右移，右移补0  2147483647
-    //不存在<<<
+        //alt+回车
+        Scanner scan = new Scanner(System.in);
+        //int a=10;
+        System.out.println("输入你的年龄: ");
+        int age = scan.nextInt();
+        System.out.println("年龄: "+age);
+        System.out.println("输入你的姓名");
+        //String name = scan.nextLine();//读一行，读进了回车,会失效
+        String name =scan.next();//读到空格就结束
+        System.out.println("姓名: "+name);
     }
     public static void main6(String[] args) {
-        int a=10;
-        int b=11;
-        System.out.println(a>b);//得出的结果为true或false
-        System.out.println(a!=b);
-        System.out.println(a<b);
-        System.out.println(a==b);
-        System.out.println(a>5&&a<10);
-        //如果第一个表达式为假，不执行第二个
+        System.out.println(10);//输出且换行
+        System.out.print("不换行 ");
+        System.out.printf("%s","这是格式化输出! ");
     }
     public static void main5(String[] args) {
-        int a=10;
-        int b=++a;
-        System.out.println(b);
-        System.out.println(a);
+        for (int i = 1; i <= 100; i++) {
+            if(i % 3 == 0 && i % 5 == 0){
+                System.out.println(i);
+                continue;
+            }
+        }
     }
     public static void main4(String[] args) {
-        int a = 10;
-        a += 1;
-        double d=12.5;
-        //a = a + d; errnoeous
-        a+=d;//双目操作符自动类型转换
-        System.out.println(a);
+        int i = 1;
+        int sum = 0;
+        while(i <= 5) {
+            int ret = 1;
+            for (int j = i; j > 0 ; j--) {
+                ret *= j;
+            }
+            sum += ret;//加每个阶乘的值
+            i++;
+        }
+        System.out.println(sum);
     }
     public static void main3(String[] args) {
-        System.out.println(12.5 % 10.5);
-        System.out.println(11 % 10.5);
+        int sumOdd = 0;
+        int sumEve = 0;
+        for (int i = 0; i <= 100; i += 2) {
+            sumEve += i;//加0不影响和
+            if(i != 100){//最后一次循环防止加101
+                sumOdd += i + 1;
+            }
+        }
+        int sum=sumEve+sumOdd;
+        System.out.println("总和 " + sum);
+        System.out.println("奇数 " + sumOdd);
+        System.out.println("偶数 " + sumEve);
     }
     public static void main2(String[] args) {
-        System.out.println(10%3);
-        System.out.println(-10%3);
-        System.out.println(10%-3);
-        System.out.println(-10%-3);
+        int i=1;
+        while(i<=10){
+            System.out.println(i);
+            i++;
+        }
     }
     public static void main1(String[] args) {
-        System.out.println(5/2);
-        System.out.println(5.0/2);
-        System.out.println(5/2.0);
-        System.out.println((float)5/2);
-        System.out.println(5/(float)2);
-        System.out.println((float)(5/2));
+         int a=1;
+         switch(a){
+             case 1:
+                 System.out.println("one");
+                 break;
+             case 2:
+                 System.out.println("two");
+                 break;
+             default:
+                 System.out.println("错误");
+                 break;
+         }
     }
-    //异或 ^
-    //相同为0 ，相异为1
 }
